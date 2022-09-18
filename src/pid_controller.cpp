@@ -1,6 +1,6 @@
 #include "pid_controller.h"
-PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 void init_pid(){  
+  PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
   Input = 0;
   Setpoint = 100;
   myPID.SetOutputLimits(0, 100);

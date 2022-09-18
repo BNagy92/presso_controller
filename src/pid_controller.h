@@ -6,7 +6,7 @@
 
 double Setpoint, Input, Output;
 double Kp=2, Ki=5, Kd=1;
-
+extern PID myPID;
 
 struct pid_struct {
    double *Temp;
