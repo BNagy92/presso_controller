@@ -27,7 +27,7 @@ void measure_temp(void *params)
     double rptc = (3.3-u)/i;
     double Rt = (rptc/100-1.0)/0.00385-12;
     if ( xSemaphoreTake(temp_struct_ptr->MUTEX_MEAS_OUT_C1, 10) == pdTRUE ){
-      temp_struct_ptr->Temp = Rt;
+      *temp_struct_ptr->Temp = Rt;
       xSemaphoreGive(temp_struct_ptr->MUTEX_MEAS_OUT_C1);
     }
     

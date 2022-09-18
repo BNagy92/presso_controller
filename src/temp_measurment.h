@@ -3,7 +3,7 @@
 
 struct temp_struct {
    uint32_t pin;
-   double Temp;
+   double *Temp;
    SemaphoreHandle_t MUTEX_MEAS_OUT_C1 = NULL;
 };
 void init_temp(int pin);
