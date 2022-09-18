@@ -1,4 +1,13 @@
 #include <Arduino.h>
+#include <mutex>
+
+struct temp_struct {
+   uint32_t pin;
+   double Temp;
+   SemaphoreHandle_t MUTEX_MEAS_OUT_C1 = NULL;
+};
+void init_temp(int pin);
+void measure_temp(void *params);
 const uint32_t ADC_LUT[4096] = { 0,
 0,66,70,74,78,81,82,83,85,86,87,89,90,91,92,94,
 95,96,97,98,99,100,101,102,103,104,105,106,106,107,108,109,
@@ -257,5 +266,3 @@ const uint32_t ADC_LUT[4096] = { 0,
 4057,4058,4058,4059,4059,4060,4060,4061,4061,4062,4062,4063,4063,4064,4065,4066,
 4067,4068,4069,4070,4070,4071,4072,4073,4074,4075,4076,4077,4078,4079,4080
 } ;
-void init_temp(int pin);
-double measure_temp(int pin);
